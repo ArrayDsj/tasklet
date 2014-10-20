@@ -42,7 +42,7 @@ public class Step01 extends Task {
 		// 发起请求
 		try {
 			if (retry == 3)
-				throw new Exception("Exception test");
+				throw new Exception("retry test");
 			String content = MHttpClient.request(req, "UTF-8");
 			d("响应内容：" + content);
 			JSONObject target = findApk(content, targetPkn);

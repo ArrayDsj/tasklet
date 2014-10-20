@@ -12,7 +12,7 @@ import net.wisedream.tasklet.Task;
  * @Created Oct 13, 2014
  */
 public class StackManager extends Manager {
-	protected volatile Stack<Task> taskStack = new Stack<Task>();
+	protected Stack<Task> taskStack = new Stack<Task>();
 
 	/**
 	 * Main logic for this manager

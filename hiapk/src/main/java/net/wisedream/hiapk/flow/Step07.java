@@ -33,9 +33,7 @@ public class Step07 extends Task {
 		try {
 			MHttpClient.setFollowRedirect(true);
 			HttpResponse resp = MHttpClient.execute(req);
-			try{
-				Thread.sleep(10*1000);
-			}catch(Exception e){}
+			pause(10);
 			EntityUtils.consumeQuietly(resp.getEntity());
 		} catch (Exception e) {
 			req.abort();
