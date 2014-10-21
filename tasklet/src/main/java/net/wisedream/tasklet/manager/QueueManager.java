@@ -20,7 +20,7 @@ public class QueueManager extends Manager {
 		Task currentTask = null;
 		while ((currentTask = this.taskQueue.poll()) != null) {
 			try {
-				i("Task: <<<" + currentTask.getTag() + ">>>");
+				d("Task: <<<" + currentTask.getTag() + ">>>");
 				currentTask.perform(this);
 			} catch (Exception e) {
 				onCatch(currentTask, e);

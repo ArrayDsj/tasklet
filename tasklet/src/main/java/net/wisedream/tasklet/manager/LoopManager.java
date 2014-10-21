@@ -22,7 +22,7 @@ public class LoopManager extends Manager {
 	protected void mainLogic(Manager manager) {
 		while (currentTask != null) {
 			try {
-				i("Task: <<<" + currentTask.getTag() + ">>>");
+				d("Task: <<<" + currentTask.getTag() + ">>>");
 				currentTask.perform(this);
 			} catch (Exception e) {
 				onCatch(currentTask, e);

@@ -24,7 +24,7 @@ public class StackManager extends Manager {
 		Task currentTask;
 		while ((currentTask = taskStack.pop()) != null) {
 			try {
-				i("Task: <<<" + currentTask.getTag() + ">>>");
+				d("Task: <<<" + currentTask.getTag() + ">>>");
 				currentTask.perform(this);
 			} catch (Exception e) {
 				onCatch(currentTask, e);
