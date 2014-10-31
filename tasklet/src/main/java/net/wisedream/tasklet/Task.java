@@ -4,13 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Execution unit.
- *
+ * 
  * @author pseudo
  * @Created Oct 13, 2014
  */
 public abstract class Task {
-	protected Context context ;
-
+	protected Context context;
 	protected String tag;
 
 	public Task() {
@@ -19,7 +18,7 @@ public abstract class Task {
 		if (this.tag.isEmpty())
 			this.tag = getClass().getName();
 		context = Context.getCurrent();
-		if(context==null)
+		if (context == null)
 			throw new RuntimeException("Context is null");
 	}
 

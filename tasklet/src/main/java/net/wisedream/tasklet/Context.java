@@ -80,6 +80,8 @@ public class Context {
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends ExecutorService> T getExecutorService() {
+		if(this.executorService == null)
+			throw new RuntimeException("executorService hasn't been set, you should set it before use");
 		return (T) this.executorService;
 	}
 
