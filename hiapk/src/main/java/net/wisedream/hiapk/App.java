@@ -18,7 +18,6 @@ public class App {
 		final HiLauncher launcher = new HiLauncher();
 //		for (int i = 0; i < 10; i++)
 			new Thread() {
-
 				@Override
 				public void run() {
 					launcher.launch();

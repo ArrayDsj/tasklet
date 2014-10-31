@@ -11,7 +11,7 @@ import net.wisedream.tasklet.Task;
  * @author pseudo
  * @Created Oct 13, 2014
  */
-public class StackManager extends Manager {
+public class StackManager extends LogicalManager {
 	protected Stack<Task> taskStack = new Stack<Task>();
 
 	/**
@@ -24,7 +24,6 @@ public class StackManager extends Manager {
 		Task currentTask;
 		while ((currentTask = taskStack.pop()) != null) {
 			try {
-				d("Task: <<<" + currentTask.getTag() + ">>>");
 				currentTask.perform(this);
 			} catch (Exception e) {
 				onCatch(currentTask, e);
@@ -32,10 +31,13 @@ public class StackManager extends Manager {
 		}
 	}
 
+	protected void onCatch(Task currentTask, Exception e) {
+		e.printStackTrace();
+	}
+
 	/**
 	 * Adds a {@link Task} to the stack.
 	 */
-	@Override
 	public void addTask(Task task) {
 		this.taskStack.push(task);
 	}
@@ -49,6 +51,14 @@ public class StackManager extends Manager {
 
 		public T pop() {
 			return this.stack.poll();
+		}
+
+		public void remove(Task task){
+			stack.remove(task);
+		}
+		public void clear() {
+			if (!isEmpty())
+				stack.clear();
 		}
 
 		/**
@@ -70,6 +80,23 @@ public class StackManager extends Manager {
 		public String toString() {
 			return this.stack.toString();
 		}
+	}
+
+	public void deleteTask(Task task) {
+		this.taskStack.remove(task);
+	}
+
+	public void deleteAllTasks() {
 
 	}
+
+	public void onStart() {
+
+	}
+
+	public void onFinish() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

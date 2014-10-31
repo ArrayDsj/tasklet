@@ -2,7 +2,6 @@ package net.wisedream.hiapk.flow;
 
 import net.wisedream.hiapk.util.MHttpClient;
 import net.wisedream.tasklet.Manager;
-import net.wisedream.tasklet.Task;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -14,8 +13,7 @@ import org.apache.http.util.EntityUtils;
  * @author pseudo
  * 
  */
-public class Step07 extends Task {
-	@Override
+public class Step07 extends HiapkTask {
 	public void perform(Manager manager){
 		String url = context.getAttrib("downUrl");
 		HttpGet req = new HttpGet(url);

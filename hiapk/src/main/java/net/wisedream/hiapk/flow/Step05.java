@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 import net.wisedream.hiapk.util.MHttpClient;
 import net.wisedream.tasklet.Manager;
-import net.wisedream.tasklet.Task;
 
 import org.apache.http.client.methods.HttpPost;
 import org.json.JSONObject;
@@ -16,10 +15,9 @@ import org.json.JSONObject;
  * @author pseudo
  * 
  */
-public class Step05 extends Task {
+public class Step05 extends HiapkTask {
 	int retry = 3;
 
-	@Override
 	public void perform(Manager manager) {
 		HttpPost req = new HttpPost("http://m.apk.hiapk.com/wap/api.do?qt=8000");
 		// 设置请求头

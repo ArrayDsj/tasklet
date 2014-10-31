@@ -12,7 +12,7 @@ import net.wisedream.tasklet.Task;
  * @author pseudo
  * @Created Oct 13, 2014
  */
-public class QueueManager extends Manager {
+public class QueueManager extends LogicalManager {
 	protected Queue<Task> taskQueue = new LinkedList<Task>();
 
 	@Override
@@ -20,12 +20,16 @@ public class QueueManager extends Manager {
 		Task currentTask = null;
 		while ((currentTask = this.taskQueue.poll()) != null) {
 			try {
-				d("Task: <<<" + currentTask.getTag() + ">>>");
 				currentTask.perform(this);
 			} catch (Exception e) {
 				onCatch(currentTask, e);
 			}
 		}
+	}
+
+	protected void onCatch(Task currentTask, Exception e) {
+		// TODO Auto-generated method stub
+
 	}
 
 	/**
@@ -35,5 +39,21 @@ public class QueueManager extends Manager {
 	 */
 	public void addTask(Task task) {
 		this.taskQueue.add(task);
+	}
+
+	public void deleteTask(Task task) {
+		this.taskQueue.remove(task);
+	}
+
+	public void deleteAllTasks() {
+		this.taskQueue.clear();
+	}
+
+	public void onStart() {
+
+	}
+
+	public void onFinish() {
+
 	}
 }

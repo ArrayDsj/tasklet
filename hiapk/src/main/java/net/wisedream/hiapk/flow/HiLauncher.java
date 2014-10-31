@@ -25,11 +25,6 @@ public class HiLauncher extends Launcher {
 				// 释放资源
 				MHttpClient.release();
 			}
-
-			@Override
-			public void onCatch(Task task, Exception e) {
-				e.printStackTrace();
-			}
 		};
 		return manager;
 	}

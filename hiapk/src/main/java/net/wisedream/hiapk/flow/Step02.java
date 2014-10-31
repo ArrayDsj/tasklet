@@ -2,7 +2,6 @@ package net.wisedream.hiapk.flow;
 
 import net.wisedream.hiapk.util.MHttpClient;
 import net.wisedream.tasklet.Manager;
-import net.wisedream.tasklet.Task;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -14,7 +13,7 @@ import org.json.JSONObject;
  * @author pseudo
  *
  */
-public class Step02 extends Task {
+public class Step02 extends HiapkTask {
 	private JSONObject target;
 	private String url;
 
@@ -27,7 +26,6 @@ public class Step02 extends Task {
 	/**
 	 * 这一步只是获取页面信息，内容没有用。
 	 */
-	@Override
 	public void perform(Manager manager){
 		HttpGet req = new HttpGet(url);
 		// 设置请求头

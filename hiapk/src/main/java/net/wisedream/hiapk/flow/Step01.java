@@ -3,7 +3,6 @@ package net.wisedream.hiapk.flow;
 import net.wisedream.hiapk.util.MHttpClient;
 import net.wisedream.hiapk.util.Uri;
 import net.wisedream.tasklet.Manager;
-import net.wisedream.tasklet.Task;
 
 import org.apache.http.client.methods.HttpGet;
 import org.json.JSONArray;
@@ -15,7 +14,7 @@ import org.json.JSONObject;
  * @author pseudo
  * 
  */
-public class Step01 extends Task {
+public class Step01 extends HiapkTask {
 	private int retry = 3;
 	private int pageIndex = 1;// 页码从1开始
 	private int maxPageIndex = 3;// 只请求前三页
@@ -28,7 +27,6 @@ public class Step01 extends Task {
 				+ "&type=1&pid=0";
 	}
 
-	@Override
 	public void perform(Manager manager) {
 		HttpGet req = new HttpGet(concatURL());
 		// 设置请求头

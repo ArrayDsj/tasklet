@@ -3,7 +3,6 @@ package net.wisedream.hiapk.flow;
 import net.wisedream.hiapk.util.MHttpClient;
 import net.wisedream.hiapk.util.StrTools;
 import net.wisedream.tasklet.Manager;
-import net.wisedream.tasklet.Task;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -17,7 +16,7 @@ import org.json.JSONObject;
  * @author pseudo
  * 
  */
-public class Step06 extends Task {
+public class Step06 extends HiapkTask {
 	int retry = 3;
 	private String info;
 	private JSONObject target;
@@ -30,7 +29,6 @@ public class Step06 extends Task {
 				+ target.getString("id");
 	}
 
-	@Override
 	public void perform(Manager manager) {
 		HttpPost req = new HttpPost(url);
 		// 设置请求头
