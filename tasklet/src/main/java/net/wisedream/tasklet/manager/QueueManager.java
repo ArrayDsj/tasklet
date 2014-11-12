@@ -28,8 +28,6 @@ public class QueueManager extends LogicalManager {
 	}
 
 	protected void onCatch(Task currentTask, Exception e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/**
