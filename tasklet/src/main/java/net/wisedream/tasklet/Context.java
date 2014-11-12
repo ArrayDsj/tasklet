@@ -50,4 +50,8 @@ public class Context {
 	public <T> T getAttrib(String key) {
 		return (T) this.attributes.get(key);
 	}
+	
+	public void clear() {
+		attributes.clear();
+	}
 }
