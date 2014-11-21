@@ -30,6 +30,10 @@ public class LoopManager extends LogicalManager {
 		this.task = task;
 	}
 
+	public void addEmergencyTask(Task task) {
+		this.task = task;
+	}
+
 	public void deleteTask(Task task) {
 		this.task = null;
 	}
@@ -39,10 +43,11 @@ public class LoopManager extends LogicalManager {
 	}
 
 	public void onStart() {
-		
+
 	}
 
 	public void onFinish() {
-		
+
 	}
+
 }

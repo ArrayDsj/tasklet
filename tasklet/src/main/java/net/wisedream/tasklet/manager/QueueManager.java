@@ -39,6 +39,10 @@ public class QueueManager extends LogicalManager {
 		this.taskQueue.add(task);
 	}
 
+	public void addEmergencyTask(Task task) {
+		((LinkedList<Task>) this.taskQueue).addFirst(task);
+	}
+
 	public void deleteTask(Task task) {
 		this.taskQueue.remove(task);
 	}
@@ -54,4 +58,5 @@ public class QueueManager extends LogicalManager {
 	public void onFinish() {
 
 	}
+
 }

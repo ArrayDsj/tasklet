@@ -42,6 +42,26 @@ public class StackManager extends LogicalManager {
 		this.taskStack.push(task);
 	}
 
+	public void addEmergencyTask(Task task) {
+		this.taskStack.push(task);
+	}
+
+	public void deleteTask(Task task) {
+		this.taskStack.remove(task);
+	}
+
+	public void deleteAllTasks() {
+
+	}
+
+	public void onStart() {
+
+	}
+
+	public void onFinish() {
+
+	}
+
 	public static class Stack<T> {
 		private LinkedList<T> stack = new LinkedList<T>();
 
@@ -53,9 +73,10 @@ public class StackManager extends LogicalManager {
 			return this.stack.poll();
 		}
 
-		public void remove(Task task){
+		public void remove(Task task) {
 			stack.remove(task);
 		}
+
 		public void clear() {
 			if (!isEmpty())
 				stack.clear();
@@ -81,22 +102,4 @@ public class StackManager extends LogicalManager {
 			return this.stack.toString();
 		}
 	}
-
-	public void deleteTask(Task task) {
-		this.taskStack.remove(task);
-	}
-
-	public void deleteAllTasks() {
-
-	}
-
-	public void onStart() {
-
-	}
-
-	public void onFinish() {
-		// TODO Auto-generated method stub
-
-	}
-
 }
