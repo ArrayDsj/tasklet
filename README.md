@@ -1,27 +1,15 @@
 # Tasklet
 ------
-### 简介
+## 简介
 
-Tasklet是一个简单的任务管理框架，主要用于将一个大任务分割成许多较小的子任务，并管理这些子任务的执行。Tasklet主要有以下4个类:
+Tasklet是一个非常简单的任务管理工具，主要用于管理执行有先后顺序的多个任务(如刷量程序的登录->搜索->点击->下载)。
+它只有4个类
 
-* Task    : 任务/子任务，多个Task组成一个完整的任务/功能。
-* Manager : 任务/子任务的执行入口。通过内部维护一个Task容器来管理要运行的Task。
-* Context : 为子任务提供运行环境的上下文消息和服务。
-* Launcher: 启动一个完整的任务，主要用于配置任务的执行入口和Context环境信息。
+* Task 抽象的任务接口，
+* TaskContext 任务间上下文对象，可保存任务间共享数据
+* TaskGroup 一个Task特例，逻辑上的任务组。
+* TaskPerformer 核心类，任务执行入口。
 
-Tasklet的主要思想是将一个大型任务分解为多个功能，每个功能又可分为多个Task； 一个或多个Task组成一个子功能，其入口就是Manager；一个或多个Manager/Task组成一个完整的任务，其入口就是Launcher。可将它们简单地理解为一个任务树：
+## 原理
 
-    Launcher
-    |
-    Manager
-    |     \
-    |       Manager...
-    |       |
-    |       |
-    Task    Task...   
-
-### 目录结构
-
-* tasklet: tasklet源工程, 可以从target文件夹中下载已编译好的jar文件。
-* hiapk  : 示例程序, 简单模拟了从m.apk.hiapk.com上搜索并下载指定应用的功能。
-
+![程序执行流程图](tasklet_flowchart.png)
