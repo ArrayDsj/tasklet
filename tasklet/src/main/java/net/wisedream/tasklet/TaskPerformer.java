@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by zxp on 3/23/15.
  */
-public class TaskPerformer {
+public class TaskPerformer implements Task {
     private List<ExceptionHandler> exceptionHandlers = new LinkedList<ExceptionHandler>();
     private Task entryTask;
     private TaskContext context;
@@ -17,27 +17,37 @@ public class TaskPerformer {
         this.context = context;
     }
 
-    public void perform() {
+    @Override
+    public Terminator perform(TaskContext context) throws Exception {
+        Terminator terminator = Terminator.SUCCESS;
         onStart(context);
         Task nextTask = entryTask;
         try {
             while (nextTask != null)
-                nextTask = nextTask.perform(context);
+                if (nextTask instanceof Terminator) {
+                    terminator = (Terminator) nextTask;
+                    break;
+                } else {
+                    nextTask = nextTask.perform(context);
+                }
         } catch (Exception e) {
             for (ExceptionHandler handler : exceptionHandlers)
                 handler.handle(e);
+            terminator=Terminator.CRASH;
         }
         onExit(context);
+        return terminator;
     }
 
-    protected void onStart(TaskContext context){
-
-    }
-    protected void onExit(TaskContext context){
+    protected void onStart(TaskContext context) {
 
     }
 
-    public void addExceptionHandler(ExceptionHandler handler){
+    protected void onExit(TaskContext context) {
+
+    }
+
+    public void addExceptionHandler(ExceptionHandler handler) {
         this.exceptionHandlers.add(handler);
     }
 
