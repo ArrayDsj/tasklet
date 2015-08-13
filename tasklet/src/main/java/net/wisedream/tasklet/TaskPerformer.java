@@ -10,11 +10,9 @@ import java.util.List;
 public class TaskPerformer implements Task {
     private List<ExceptionHandler> exceptionHandlers = new LinkedList<ExceptionHandler>();
     private Task entryTask;
-    private TaskContext context;
 
-    public TaskPerformer(Task entryTask, TaskContext context) {
+    public TaskPerformer(Task entryTask) {
         this.entryTask = entryTask;
-        this.context = context;
     }
 
     @Override
@@ -33,7 +31,7 @@ public class TaskPerformer implements Task {
         } catch (Exception e) {
             for (ExceptionHandler handler : exceptionHandlers)
                 handler.handle(e);
-            terminator=Terminator.CRASH;
+            terminator = Terminator.CRASH;
         }
         onExit(context);
         return terminator;
