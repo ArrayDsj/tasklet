@@ -4,14 +4,15 @@
 
 	<groupId>net.wisedream</groupId>
 	<artifactId>tasklet</artifactId>
-	<version>2.0</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
 	<name>tasklet</name>
-	<url>https://github.com/manwu91/tasklet</url>
+	<url>https://github.com/holymonk/tasklet</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <compiler.level>1.8</compiler.level>
 	</properties>
 
 	<dependencies>
@@ -29,6 +30,14 @@
 	</dependencies>
 	<build>
 		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${compiler.level}</source>
+                    <target>${compiler.level}</target>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>

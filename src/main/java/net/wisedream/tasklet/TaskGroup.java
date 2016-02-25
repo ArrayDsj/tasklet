@@ -17,8 +17,9 @@ public abstract class TaskGroup implements Task{
         return nextTask();
     }
 
-    public void addTask(Task task){
+    public TaskGroup addTask(Task task){
         this.tasks.add(task);
+        return this;
     }
     public abstract Task nextTask();
 }

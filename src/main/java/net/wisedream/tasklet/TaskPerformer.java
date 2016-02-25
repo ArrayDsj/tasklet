@@ -45,8 +45,9 @@ public class TaskPerformer implements Task {
 
     }
 
-    public void addExceptionHandler(ExceptionHandler handler) {
+    public TaskPerformer withExceptionHandler(ExceptionHandler handler) {
         this.exceptionHandlers.add(handler);
+        return this;
     }
 
     public static interface ExceptionHandler {
