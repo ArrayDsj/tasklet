@@ -2,12 +2,12 @@
 ------
 ## Introduction 
 
-Tasklet is a simple common lib for task management, it's aimed at the execution and management of sequential tasks. Tasklet only consists four classes, these are
+Tasklet is a simple common lib used to execute and manage a sequence of tasks. Tasklet only consists of four classes, these are
 
-* Task The abstraction of task to be performed
-* TaskContext An context object is used to hold shared data between tasks
-* TaskGroup A specific task that holds a group of task
-* TaskPerformer The entry to perform tasks
+* Task: The abstraction of task to be performed
+* TaskContext: An context object is used to hold shared data between tasks
+* TaskGroup: A specific task that holds a group of task
+* TaskPerformer: The entry to perform tasks
 
 ![flowchart of tasklet](tasklet_flowchart.png)
 
